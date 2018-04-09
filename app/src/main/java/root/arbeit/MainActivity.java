@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
-
+// BITBUCKET!!!!
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -56,14 +56,17 @@ public class MainActivity extends AppCompatActivity {
         public void onResponse(Call<Answer> call, Response<Answer> response) {
             Toast.makeText(MainActivity.this, getResources().getString(R.string.OK), Toast.LENGTH_SHORT).show();
             Message message = response.body().getMessage();
+            String status = response.body().getStatus();
+            if (status.equals(getResources().getString(R.string.SUCCESS))) {
 
+                Field f[] = message.getClass().getDeclaredFields();
+                int n = f.length - 2;
+                for (int i = 0; i < n; i++)
+                    breeds.add(f[i].getName());
 
-            Field f[] = message.getClass().getDeclaredFields();
-            int n = f.length - 2;
-            for (int i = 0; i < n; i++)
-                breeds.add(f[i].getName());
-
-            ((ArrayAdapter<String>)listView.getAdapter()).notifyDataSetChanged();
+                ((ArrayAdapter<String>) listView.getAdapter()).notifyDataSetChanged();
+            } else
+                Toast.makeText(MainActivity.this, status, Toast.LENGTH_SHORT).show();
         }
 
         @Override

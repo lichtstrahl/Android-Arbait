@@ -37,10 +37,16 @@ public class NewImageButtonClicker extends ButtonClick {
     class ReceptionNewImage implements Callback<DogAnswer> {
         @Override
         public void onResponse(Call<DogAnswer> call, Response<DogAnswer> response) {
-            Glide
-                    .with(context)
-                    .load(response.body().getMessage())
-                    .into(imageView);
+            String status = response.body().getStatus();
+            if (status.equals(context.getResources().getString(R.string.SUCCESS))) {
+
+                Glide
+                        .with(context)
+                        .load(response.body().getMessage())
+                        .into(imageView);
+            }
+            else
+                Toast.makeText(context, status, Toast.LENGTH_SHORT).show();
         }
 
         @Override

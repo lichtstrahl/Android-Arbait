@@ -14,4 +14,7 @@
     <!-- DEBUG -->
     <string name="OK">OK</string>
     <string name="FAIL">FAIL</string>
+
+    <!-- Статус возвращаемого запроса -->
+    <string name="SUCCESS">success</string>
 </resources>
