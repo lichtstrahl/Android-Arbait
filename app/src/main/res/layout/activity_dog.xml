@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"/>
+    <ImageView
+        android:id="@id/image"
+        android:layout_weight="100"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/buttonLoadRandom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/newRandomImage"
+            android:backgroundTint="@color/stdButtonBg"
+            android:textColor="@color/white"/>
+        <!--
+        <Button
+            android:id="@+id/buttonBackToBreeds"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/backToBreeds"
+            android:backgroundTint="@color/stdButtonBg"
+            android:textColor="@color/white"/>
+        -->
+
+    </LinearLayout>
+</LinearLayout>

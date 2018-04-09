@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Arbeit</string>
+
+    <string name="baseURL">https://dog.ceo/dog-api/</string>
+    <string name="nameButtonConnect">Обновить список пород</string>
+
+    <!-- Передача данных между MainActivity и DogActivity -->
+    <string name="breed">breed</string>
+
+    <!-- DogActivity -->
+    <string name="newRandomImage">Ещё фото</string>
+    <string name="backToBreeds">Новый пёс</string>
+
+    <!-- DEBUG -->
+    <string name="OK">OK</string>
+    <string name="FAIL">FAIL</string>
+</resources>
