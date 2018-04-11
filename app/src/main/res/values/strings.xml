@@ -13,7 +13,10 @@
 
     <!-- DEBUG -->
     <string name="OK">OK</string>
-    <string name="FAIL">FAIL</string>
+    <string name="FAIL">
+        Сервер не отвечает.\n
+        Проверьте подключение к интернету.
+    </string>
 
     <!-- Статус возвращаемого запроса -->
     <string name="SUCCESS">success</string>

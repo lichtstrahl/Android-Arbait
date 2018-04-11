@@ -13,6 +13,7 @@ import retrofit2.Response;
 import root.arbeit.App;
 import root.arbeit.Network.DogAnswer;
 import root.arbeit.R;
+import root.arbeit.ivToast;
 
 import static android.content.ContentValues.TAG;
 
@@ -51,7 +52,7 @@ public class NewImageButtonClicker extends ButtonClick {
 
         @Override
         public void onFailure(Call<DogAnswer> call, Throwable t) {
-            Toast.makeText(context, context.getResources().getString(R.string.FAIL), Toast.LENGTH_SHORT).show();
+            ivToast.makeText(context, context.getResources().getString(R.string.FAIL), Toast.LENGTH_SHORT).show();
             Log.d(TAG, t.getMessage());
         }
     }
