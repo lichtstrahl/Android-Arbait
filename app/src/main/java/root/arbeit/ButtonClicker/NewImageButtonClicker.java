@@ -1,11 +1,14 @@
 package root.arbeit.ButtonClicker;
 
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.DrawableImageViewTarget;
+import com.bumptech.glide.request.target.ViewTarget;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -40,11 +43,11 @@ public class NewImageButtonClicker extends ButtonClick {
         public void onResponse(Call<DogAnswer> call, Response<DogAnswer> response) {
             String status = response.body().getStatus();
             if (status.equals(context.getResources().getString(R.string.SUCCESS))) {
-
-                Glide
+                    Glide
                         .with(context)
                         .load(response.body().getMessage())
                         .into(imageView);
+
             }
             else
                 Toast.makeText(context, status, Toast.LENGTH_SHORT).show();
