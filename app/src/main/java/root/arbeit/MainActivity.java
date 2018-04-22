@@ -1,7 +1,7 @@
 package root.arbeit;
 
-import android.net.wifi.ScanResult;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -21,9 +21,7 @@ import root.arbeit.Network.Answer;
 import root.arbeit.Network.Message;
 
 public class MainActivity extends AppCompatActivity {
-
     private String TAG = "MainActivity";
-
     private Button buttonConnect;
     private RecyclerView recyclerView;
     private List<Breed> breeds2 = new ArrayList<>();
@@ -46,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     public class ReceptionGetBreeds implements Callback<Answer> {
         @Override
-        public void onResponse(Call<Answer> call, Response<Answer> response) {
+        public void onResponse(@NonNull Call<Answer> call, @NonNull Response<Answer> response) {
             Toast.makeText(MainActivity.this, getResources().getString(R.string.OK), Toast.LENGTH_SHORT).show();
             Message message = response.body().getMessage();
             String status = response.body().getStatus();
@@ -65,20 +63,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onFailure(Call<Answer> call, Throwable t) {
+        public void onFailure(@NonNull Call<Answer> call, @NonNull Throwable t) {
             ivToast.makeText(MainActivity.this, getResources().getString(R.string.FAIL), Toast.LENGTH_SHORT).show();
             Log.d(TAG, t.getMessage());
 
             // Добавить кнопку для повторного запроса
             MainActivity.this.buttonConnect.setVisibility(View.VISIBLE);
         }
-    }
-
-    private String[] getData() {
-        int n = 10;
-        String str[] = new String[n];
-        for (int i = 0; i < n; i++)
-            str[i] = "ITEM + " + i;
-        return str;
     }
 }

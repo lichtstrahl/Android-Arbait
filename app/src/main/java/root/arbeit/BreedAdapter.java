@@ -24,7 +24,6 @@ import root.arbeit.Network.DogAnswer;
 import static android.content.ContentValues.TAG;
 
 public class BreedAdapter extends RecyclerView.Adapter<BreedAdapter.BreedHolder> {
-
     private List<Breed> breed;
     private Context context;
     public BreedAdapter(Context context, List<Breed> breeds) {
@@ -75,20 +74,19 @@ public class BreedAdapter extends RecyclerView.Adapter<BreedAdapter.BreedHolder>
         }
 
         @Override
-        public void onResponse(Call<DogAnswer> call, Response<DogAnswer> response) {
-            String status = response.body().getStatus();
-            if (status.equals(context.getResources().getString(R.string.SUCCESS))) {
-                Glide
-                        .with(context)
-                        .load(response.body().getMessage())
-                        .into(imageView);
-            }
-            else
-                Toast.makeText(context, status, Toast.LENGTH_SHORT).show();
+        public void onResponse(@NonNull Call<DogAnswer> call, @NonNull Response<DogAnswer> response) {
+                String status = response.body().getStatus();
+                if (status.equals(context.getResources().getString(R.string.SUCCESS))) {
+                    Glide
+                            .with(context)
+                            .load(response.body().getMessage())
+                            .into(imageView);
+                } else
+                    Toast.makeText(context, status, Toast.LENGTH_SHORT).show();
         }
 
         @Override
-        public void onFailure(Call<DogAnswer> call, Throwable t) {
+        public void onFailure(@NonNull Call<DogAnswer> call, @NonNull Throwable t) {
             Toast.makeText(context, context.getResources().getString(R.string.FAIL), Toast.LENGTH_SHORT).show();
             Log.d(TAG, t.getMessage());
         }
