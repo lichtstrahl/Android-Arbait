@@ -68,8 +68,7 @@ public class MainActivity extends AppCompatActivity {
         public void onFailure(Call<Answer> call, Throwable t) {
             ivToast.makeText(MainActivity.this, getResources().getString(R.string.FAIL), Toast.LENGTH_SHORT).show();
             Log.d(TAG, t.getMessage());
-//            for (int i = 0; i < 5; i++)
-//                Log.d(TAG, t.getStackTrace()[i].toString());
+
             // Добавить кнопку для повторного запроса
             MainActivity.this.buttonConnect.setVisibility(View.VISIBLE);
         }
